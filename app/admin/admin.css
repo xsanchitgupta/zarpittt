@@ -1,0 +1,359 @@
+/* ========================================
+   ZARPIT — Admin Premium Soft Apple Theme
+   ======================================== */
+
+:root {
+  /* Light Theme Variables */
+  --admin-bg: #f8f9fa; /* slightly more vibrant light grey */
+  --admin-surface: #ffffff;
+  --admin-text-primary: #111827;
+  --admin-text-secondary: #6b7280;
+  --admin-text-tertiary: #9ca3af;
+  
+  --admin-border: rgba(0, 0, 0, 0.08);
+  --admin-border-light: rgba(0, 0, 0, 0.04);
+  --admin-divider: rgba(0, 0, 0, 0.06);
+
+  /* Frost Glass - Light */
+  --admin-glass-bg: rgba(255, 255, 255, 0.85);
+  --admin-glass-hover: rgba(255, 255, 255, 0.95);
+  --admin-glass-active: rgba(0, 0, 0, 0.03);
+  
+  /* Soft Shadows */
+  --admin-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --admin-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --admin-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  /* Accent - Zarpit Orange */
+  --admin-accent: #ff6b00;
+  --admin-accent-soft: rgba(255, 107, 0, 0.08);
+  --admin-glow: radial-gradient(circle, rgba(255,107,0,0.1) 0%, rgba(255,255,255,0) 70%);
+}
+
+[data-theme='dark'] {
+  /* Dark Theme Variables */
+  --admin-bg: #09090b; /* Deep rich black */
+  --admin-surface: #18181b; /* Rich dark grey surface */
+  --admin-text-primary: #f9fafb;
+  --admin-text-secondary: #9ca3af;
+  --admin-text-tertiary: #4b5563;
+  
+  --admin-border: rgba(255, 255, 255, 0.08);
+  --admin-border-light: rgba(255, 255, 255, 0.03);
+  --admin-divider: rgba(255, 255, 255, 0.05);
+
+  /* Frost Glass - Dark */
+  --admin-glass-bg: rgba(24, 24, 27, 0.75);
+  --admin-glass-hover: rgba(39, 39, 42, 0.85);
+  --admin-glass-active: rgba(255, 255, 255, 0.05);
+  
+  /* Soft Shadows */
+  --admin-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --admin-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --admin-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.8);
+
+  /* Accent - Vibrant Zarpit Orange */
+  --admin-accent: #ff7e1f;
+  --admin-accent-soft: rgba(255, 126, 31, 0.15);
+  --admin-glow: radial-gradient(circle, rgba(255,126,31,0.06) 0%, rgba(0,0,0,0) 70%);
+}
+
+.admin-theme {
+  background-color: var(--admin-bg);
+  background-image: var(--admin-glow);
+  background-position: top center;
+  background-repeat: no-repeat;
+  color: var(--admin-text-primary);
+  min-height: 100vh;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: -0.01em;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Ambient Premium Glows */
+.admin-ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--admin-accent-soft) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 0;
+  animation: adminFloat 10s ease-in-out infinite alternate;
+}
+
+@keyframes adminFloat {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-30px) scale(1.05); }
+}
+
+/* Apple-style Soft Frosted Panel */
+.admin-glass-panel {
+  background: var(--admin-glass-bg);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: 1px solid var(--admin-border);
+  border-radius: 20px;
+  box-shadow: var(--admin-shadow-md);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.admin-glass-panel:hover {
+  border-color: rgba(255, 107, 0, 0.15);
+}
+
+.admin-theme ::-webkit-scrollbar {
+  width: 6px;
+}
+.admin-theme ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.admin-theme ::-webkit-scrollbar-thumb {
+  background: var(--admin-border);
+  border-radius: 10px;
+}
+.admin-theme ::-webkit-scrollbar-thumb:hover {
+  background: var(--admin-text-tertiary);
+}
+
+.admin-sidebar-wrapper {
+  padding: 24px 0 24px 24px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .admin-mobile-header { display: flex !important; height: 64px; }
+  .admin-sidebar-wrapper { 
+    position: fixed !important; 
+    top: 0; 
+    left: 0; 
+    bottom: 0;
+    padding: 0 !important;
+    width: 280px;
+    transform: translateX(-100%); 
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+    background: transparent !important;
+  }
+  .admin-sidebar-wrapper.mobile-open { transform: translateX(0); }
+  .admin-sidebar-wrapper aside { 
+    border-radius: 0 24px 24px 0 !important; 
+    width: 100% !important;
+    height: 100% !important;
+    box-shadow: 20px 0 50px rgba(0,0,0,0.15) !important;
+  }
+  .hide-on-mobile { display: none !important; }
+  .admin-content-container { padding: 24px 20px !important; }
+  
+  main { height: calc(100vh - 64px) !important; margin-top: 0 !important; }
+}
+
+/* Forms & Inputs */
+.admin-input {
+  width: 100%;
+  background: var(--admin-glass-active);
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text-primary);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.admin-input:focus {
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 3px var(--admin-accent-soft);
+  background: transparent;
+}
+.admin-input::placeholder {
+  color: var(--admin-text-tertiary);
+}
+
+/* Buttons */
+.admin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+.admin-btn-primary {
+  background: var(--admin-accent);
+  color: #fff;
+  box-shadow: 0 4px 14px var(--admin-accent-soft);
+}
+.admin-btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Dashboard Specific Layouts */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.admin-dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 1200px) {
+  .admin-dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-kyc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 32px;
+}
+
+.admin-doc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.admin-actions-group {
+  padding: 24px;
+  border-top: 1px solid var(--admin-divider);
+  display: flex;
+  gap: 16px;
+  background: rgba(0,0,0,0.05);
+}
+
+@media (max-width: 640px) {
+  .admin-kyc-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .admin-doc-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .admin-actions-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.admin-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.admin-inspector-header {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .admin-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .admin-inspector-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.admin-stats-card-group {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.admin-items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .admin-stats-card-group {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .admin-items-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.admin-tabs-container {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg-input);
+  border-radius: var(--radius-lg);
+  margin-bottom: 28px;
+  border: 1px solid var(--border);
+  max-width: 450px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.admin-tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.admin-settings-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  max-width: 600px;
+}
+
+.admin-maintenance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card-solid);
+  padding: 16px 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .admin-tabs-container {
+    max-width: 100%;
+  }
+  .admin-settings-card {
+    padding: 20px;
+  }
+  .admin-maintenance-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .admin-maintenance-row button {
+    width: 100%;
+  }
+}
+
+/* Fix Native Select Dropdowns */
+.admin-theme select.input,
+.admin-theme select {
+  color-scheme: dark;
+}
+.admin-theme select option {
+  background-color: var(--admin-surface);
+  color: var(--admin-text-primary);
+}

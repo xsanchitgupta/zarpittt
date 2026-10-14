@@ -1,0 +1,27 @@
+{
+  "name": "Zarpit | Premium Home Services",
+  "short_name": "Zarpit",
+  "description": "Book verified professionals for salon, cleaning, cooking, repairs, painting, elder care, baby care & more in Greater Noida & Greater Noida West.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff751f",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-IN",
+  "categories": ["lifestyle", "utilities", "shopping"],
+  "icons": [
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

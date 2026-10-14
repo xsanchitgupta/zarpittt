@@ -1,0 +1,17 @@
+# Zarpit Robots.txt
+# https://zarpit.com
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /api/*
+Disallow: /auth
+Disallow: /banned
+Disallow: /maintenance
+Disallow: /signout
+Disallow: /checkout
+Disallow: /confirmation
+
+# Sitemap
+Sitemap: https://zarpit.com/sitemap.xml
